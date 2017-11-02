@@ -78,3 +78,7 @@ declare function toBigNumber(numberOrHexString: string): any;
 
 declare function isAddress(HexString: string): boolean;
 
+declare namespace net {
+    const listening: boolean;
+    const peerCount: number;
+}
