@@ -1,0 +1,25 @@
+{
+  "name": "web3js-typings",
+  "version": "1.0.0",
+  "description": "Typings File for Web3js",
+  "main": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haloplatform/web3js-typings.git"
+  },
+  "keywords": [
+    "web3",
+    "typings",
+    "web3js",
+    "ethereum"
+  ],
+  "author": "Shannon Duncan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/haloplatform/web3js-typings/issues"
+  },
+  "homepage": "https://github.com/haloplatform/web3js-typings#readme"
+}
