@@ -84,5 +84,22 @@ declare namespace net {
 }
 
 declare namespace eth {
-    
+    let defaultAccount: string;
+    let defaultBlock: number|string; 
+    const syncing: object|boolean;
+    function isSyncing(callback: (error: string, sync: object) => void): void;
+    const coinbase: string;
+    function getCoinbase(callback: (error: string, result: any) => void): void;
+    const mining: boolean;
+    function getMining(callback: (error: string, result: any) => void): void;
+    const hashrate: number;
+    function getHashrate(callback: (error: string, result: any) => void): void;
+    const gasPrice: any;
+    function getGasPrice(callbacK: (error: string, result: any) => void): void;
+    const accounts: string[];
+    function getAccounts(callback: (error: string, result: any) => void): void;
+    const blockNumber: number;
+    function getBlockNumber(callback: (error: string, result: any) => void): void;
+    function register(addressHexString: string, callback?: () => void): void;
+    function unregister(addressHexString: string, callback?: () => void): void;
 }
