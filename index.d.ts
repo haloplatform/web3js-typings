@@ -72,3 +72,7 @@ declare function fromWei(number: any, unit: string): any;
 declare function toWei(number: number, unit: string): string;
 declare function toWei(number: string, unit: string): string;
 declare function toWei(number: any, unit: string): any;
+
+declare function toBigNumber(numberOrHexString: number): any;
+declare function toBigNumber(numberOrHexString: string): any;
+
