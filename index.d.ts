@@ -102,4 +102,28 @@ declare namespace eth {
     function getBlockNumber(callback: (error: string, result: any) => void): void;
     function register(addressHexString: string, callback?: () => void): void;
     function unregister(addressHexString: string, callback?: () => void): void;
+    function getBalance(addressHexString: string, defaultBlock?: number|string, callback?: () => void ): string;
+    function getStorageAt(addressHexString: string, position: number, defaultBlock?: number| string, callback?: () => void): string;
+    function getCode(addressHexString: string, defaultBlock?: number|string, callback?: () => void ): string;
+    interface blockObject {
+        number: number,
+        hash: string,
+        parentHash: string,
+        nonce: string,
+        sha3Uncles: string,
+        logsBloom: string,
+        transactionsRoot: string,
+        stateRoot: string,
+        miner: string,
+        difficulty: any,
+        totalDifficulty: any,
+        extraData: string,
+        size: number,
+        gasLimit: number,
+        gasUsed: number,
+        timestamp: number,
+        transactions: any[],
+        uncles: any[],
+    }
+    function getBlock(blockHashOrBlockNumber: string|number, returnTransactionObjects: boolean, callback?: () => void): blockObject;
 }
