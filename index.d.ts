@@ -100,11 +100,11 @@ declare namespace eth {
     function getAccounts(callback: (error: string, result: any) => void): void;
     const blockNumber: number;
     function getBlockNumber(callback: (error: string, result: any) => void): void;
-    function register(addressHexString: string, callback?: () => void): void;
-    function unregister(addressHexString: string, callback?: () => void): void;
-    function getBalance(addressHexString: string, defaultBlock?: number|string, callback?: () => void ): string;
-    function getStorageAt(addressHexString: string, position: number, defaultBlock?: number| string, callback?: () => void): string;
-    function getCode(addressHexString: string, defaultBlock?: number|string, callback?: () => void ): string;
+    function register(addressHexString: string, callback?: (error: string, result: any) => void): void;
+    function unregister(addressHexString: string, callback?: (error: string, result: any) => void): void;
+    function getBalance(addressHexString: string, defaultBlock?: number|string, callback?: (error: string, result: any) => void ): string;
+    function getStorageAt(addressHexString: string, position: number, defaultBlock?: number| string, callback?: (error: string, result: any) => void): string;
+    function getCode(addressHexString: string, defaultBlock?: number|string, callback?: (error: string, result: any) => void ): string;
     interface blockObject {
         number: number,
         hash: string,
@@ -125,9 +125,9 @@ declare namespace eth {
         transactions: any[],
         uncles: any[],
     }
-    function getBlock(blockHashOrBlockNumber: string|number, returnTransactionObjects: boolean, callback?: () => void): blockObject;
-    function getBlockTransactionCount(hashStringOrBlockNumber: string|number, callback?: () => void): number;
-    function getUncle(blockHashOrBlockNumber: string|number, uncleNumber: number, returnTransactionObjects?: boolean, callback?: () => void): blockObject;
+    function getBlock(blockHashOrBlockNumber: string|number, returnTransactionObjects: boolean, callback?: (error: string, result: any) => void): blockObject;
+    function getBlockTransactionCount(hashStringOrBlockNumber: string|number, callback?: (error: string, result: any) => void): number;
+    function getUncle(blockHashOrBlockNumber: string|number, uncleNumber: number, returnTransactionObjects?: boolean, callback?: (error: string, result: any) => void): blockObject;
     interface transactionObject {
         hash: string,
         noonce: number,
@@ -141,8 +141,8 @@ declare namespace eth {
         gas: number,
         input: string,
     }
-    function getTransaction(transactionHash: string, callback?: () => void): transactionObject;
-    function getTransactionFromBlock(hashStringOrNumber: string, indexNumber: number, callback?: () => void): transactionObject;
+    function getTransaction(transactionHash: string, callback?: (error: string, result: any) => void): transactionObject;
+    function getTransactionFromBlock(hashStringOrNumber: string, indexNumber: number, callback?: (error: string, result: any) => void): transactionObject;
     interface transactionReceiptObject {
         blockHash: string,
         blockNumber: number,
@@ -155,8 +155,8 @@ declare namespace eth {
         contractAddress: string,
         logs: any[],
     }
-    function getTransactionReceipt(hashString: string, callback?: () => void): transactionReceiptObject;
-    function getTransactionCount(addressHexString: string, defaultBlock?: number|string, callback?: () => void): number;
+    function getTransactionReceipt(hashString: string, callback?: (error: string, result: any) => void): transactionReceiptObject;
+    function getTransactionCount(addressHexString: string, defaultBlock?: number|string, callback?: (error: string, result: any) => void): number;
     interface transactionSendObject {
         from: string,
         to: string,
@@ -166,5 +166,7 @@ declare namespace eth {
         data: string,
         nonce: number,
     }
-    function sendTransaction(transactionObject: transactionSendObject, callback?: () => void): string;
+    function sendTransaction(transactionObject: transactionSendObject, callback?: (error: string, result: any) => void): string;
+    function sendRawTransaction(signedTransactionData: string, callback?: (error: string, result: any) => void): string;
+    function sign(address: string, dataToSign: string, callback?: (error: string, result: any) => void): string;
 }
