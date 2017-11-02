@@ -142,4 +142,29 @@ declare namespace eth {
         input: string,
     }
     function getTransaction(transactionHash: string, callback?: () => void): transactionObject;
+    function getTransactionFromBlock(hashStringOrNumber: string, indexNumber: number, callback?: () => void): transactionObject;
+    interface transactionReceiptObject {
+        blockHash: string,
+        blockNumber: number,
+        transactionHash: string,
+        transactionIndex: number,
+        from: string,
+        to: string,
+        cumulativeGasUsed: number,
+        gasUsed: number,
+        contractAddress: string,
+        logs: any[],
+    }
+    function getTransactionReceipt(hashString: string, callback?: () => void): transactionReceiptObject;
+    function getTransactionCount(addressHexString: string, defaultBlock?: number|string, callback?: () => void): number;
+    interface transactionSendObject {
+        from: string,
+        to: string,
+        value: number|string|any,
+        gas: number|string|any,
+        gasPrice: number|string|any,
+        data: string,
+        nonce: number,
+    }
+    function sendTransaction(transactionObject: transactionSendObject, callback?: () => void): string;
 }
