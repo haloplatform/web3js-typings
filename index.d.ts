@@ -126,4 +126,20 @@ declare namespace eth {
         uncles: any[],
     }
     function getBlock(blockHashOrBlockNumber: string|number, returnTransactionObjects: boolean, callback?: () => void): blockObject;
+    function getBlockTransactionCount(hashStringOrBlockNumber: string|number, callback?: () => void): number;
+    function getUncle(blockHashOrBlockNumber: string|number, uncleNumber: number, returnTransactionObjects?: boolean, callback?: () => void): blockObject;
+    interface transactionObject {
+        hash: string,
+        noonce: number,
+        blockHash: string,
+        blockNumber: number,
+        transactionIndex: number,
+        from: string,
+        to: string,
+        value: any,
+        gasPrice: any,
+        gas: number,
+        input: string,
+    }
+    function getTransaction(transactionHash: string, callback?: () => void): transactionObject;
 }
