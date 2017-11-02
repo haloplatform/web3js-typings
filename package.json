@@ -21,5 +21,16 @@
   "bugs": {
     "url": "https://github.com/haloplatform/web3js-typings/issues"
   },
-  "homepage": "https://github.com/haloplatform/web3js-typings#readme"
+  "homepage": "https://github.com/haloplatform/web3js-typings#readme",
+  "typeScriptVersion": "2.0",
+  "contributors": [
+    {
+      "name": "Shannon Duncan",
+      "url": "https://github.com/shadowcodex"
+    },
+    {
+      "name": "HaloPlatform",
+      "url": "https://github.com/haloplatform"
+    }
+  ],
 }
