@@ -57,3 +57,18 @@ declare function fromDecimal(number: string): string;
 declare function fromWei(number: number, unit: string): string;
 declare function fromWei(number: string, unit: string): string;
 declare function fromWei(number: any, unit: string): any;
+
+// Units for toWei
+// kwei/ada
+// mwei/babbage
+// gwei/shannon
+// szabo
+// finney
+// ether
+// kether/grand/einstein
+// mether
+// gether
+// tether
+declare function toWei(number: number, unit: string): string;
+declare function toWei(number: string, unit: string): string;
+declare function toWei(number: any, unit: string): any;
