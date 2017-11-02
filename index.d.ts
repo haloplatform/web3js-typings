@@ -82,3 +82,7 @@ declare namespace net {
     const listening: boolean;
     const peerCount: number;
 }
+
+declare namespace eth {
+    
+}
