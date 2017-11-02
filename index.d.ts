@@ -76,3 +76,5 @@ declare function toWei(number: any, unit: string): any;
 declare function toBigNumber(numberOrHexString: number): any;
 declare function toBigNumber(numberOrHexString: string): any;
 
+declare function isAddress(HexString: string): boolean;
+
