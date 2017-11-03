@@ -211,4 +211,8 @@ declare namespace eth {
         stopWatching: () => void,
     }
     function filter(filter: string|filterObject): filterReturnObject;
+    function contract(abiArray: any[]): any; // returns contract object
+    function getCompilers(); // depreciated - don't use
+    namespace compile {} // depreciated - don't use
+    const namereg: any; // global registrar object
 }
