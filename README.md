@@ -10,3 +10,7 @@ run `npm install @haloplatform/web3js-typings`
 then attach the file with a standard reference path:
 
 `/// <reference path="../node_modules/@haloplatform/web3js-typings/index.d.ts" />`
+
+## What is purpose?
+
+Allows you to use web3 in angular, to use angular to build dapps with.
