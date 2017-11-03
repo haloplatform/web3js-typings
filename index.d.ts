@@ -169,4 +169,46 @@ declare namespace eth {
     function sendTransaction(transactionObject: transactionSendObject, callback?: (error: string, result: any) => void): string;
     function sendRawTransaction(signedTransactionData: string, callback?: (error: string, result: any) => void): string;
     function sign(address: string, dataToSign: string, callback?: (error: string, result: any) => void): string;
+    interface callObject {
+        from?: string,
+        to: string,
+        value: number|string|any,
+        gas: number|string|any,
+        gasPrice: number|string|any,
+        data: string,
+        nonce: number,
+    }
+    function call(callObject: callObject, defaultBlock: number|string, callback?: (error: string, result: any) => void): string;
+    interface estimateGasObject {
+        from?: string,
+        to?: string,
+        value?: number|string|any,
+        gas?: number|string|any,
+        gasPrice?: number|string|any,
+        data?: string,
+        nonce?: number,
+    }
+    function estimateGas(callObject: estimateGasObject, callback?: (error: string, result: any) => void): number;
+    interface filterObject {
+        fromBlock: number|string,
+        toBlock: number|string,
+        address: string,
+        topics: string[],
+    }
+    interface watchReturnObject {
+        logIndex: number,
+        transactionIndex: number,
+        transactionHash: string,
+        blockHash: string,
+        blockNumber: number,
+        address: string,
+        data: string,
+        topics: string[]
+    }
+    interface filterReturnObject {
+        get: (callback: (error: string, result: any) => void) => void,
+        watch: (callback: (error: string, result: watchReturnObject) => void) => void,
+        stopWatching: () => void,
+    }
+    function filter(filter: string|filterObject): filterReturnObject;
 }
