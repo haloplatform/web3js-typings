@@ -215,4 +215,68 @@ declare namespace eth {
     function getCompilers(); // depreciated - don't use
     namespace compile {} // depreciated - don't use
     const namereg: any; // global registrar object
+
+    function sendIBANTransaction(addres: string, ibanAddress: string, value: any);
+    
+    class iban {
+        constructor(address: string);
+        fromAddress(address: string): string;
+        fromBban(bBan: string): string;
+        indirectObject: {
+            institution: string,
+            identifier: string,
+        }
+        createIndirect(indirectObject): any;
+        isValid(address: string): boolean;
+        isDirect(address: string): boolean;
+        isIndirect(address: string): boolean;
+        checksum(address: string): any;
+        institution(address: string): string;
+        client(address: string): string;
+        address(address: string): string;
+        toString(address: string): string;
+    }
+}
+
+declare namespace db {
+    function putString(db: string, key: string, value: string): boolean;
+    function getString(db: string, key: string): string;
+    function putHex(db: string, key: string, value: string): boolean;
+    function getHex(db: string, key: string): string;
+}
+
+declare namespace shh {
+    interface postObject {
+        from: string,
+        to: string,
+        topics: string[],
+        payload: string|number|any,
+        priority: number,
+        ttl: number,
+    }
+    function post(object: postObject, callback?: (error: string, result: any) => void): boolean;
+    function newIdentity(callback?: (error: string, result: any) => void): string;
+    function hasIdentity(identity: string, callback?: (error: string, result: any) => void): boolean;
+    function newGroup(); // not implemented
+    function addToGroup(); // not implemented
+
+    // todo filter 
+    interface filterObject {
+        topics: string[],
+        to: string,
+    }
+    interface watchReturnObject {
+        from: string,
+        to: string,
+        expiry: number,
+        ttl: number,
+        sent: number,
+        topics: string[],
+        payload: string,
+        workProved: number
+    }
+    interface filterReturnObject {        
+        watch: (callback: (error: string, result: watchReturnObject) => void) => void,        
+    }
+    function filter(filterObject, callback?: (error: string, result: any) => void): filterReturnObject;
 }
