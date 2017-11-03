@@ -1,5 +1,5 @@
 {
-  "name": "web3js-typings",
+  "name": "@haloplatform/web3js-typings",
   "version": "1.0.0",
   "description": "Typings File for Web3js",
   "main": "index.d.ts",
